@@ -12,7 +12,6 @@ protocol AddReminders {
    func didReceiveReminders(reminder: ToDo)
 }
 
-
 class ToDoController: UIViewController {
 
    @IBOutlet weak var txtReminder: UITextField!

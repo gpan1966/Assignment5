@@ -44,6 +44,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="sqh-AB-arc" kind="show" identifier="segView" id="LjZ-2j-Q5n"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -59,7 +62,7 @@
                     <navigationItem key="navigationItem" id="brT-MJ-qWh">
                         <barButtonItem key="rightBarButtonItem" title="Add a Reminder" id="zcN-OO-aaQ">
                             <connections>
-                                <segue destination="XkR-Ab-q0j" kind="show" id="I9a-ca-b1x"/>
+                                <segue destination="XkR-Ab-q0j" kind="show" identifier="segAdd" id="I9a-ca-b1x"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -72,10 +75,10 @@
             </objects>
             <point key="canvasLocation" x="881.5" y="-383.5"/>
         </scene>
-        <!--To Do Controller-->
+        <!--Add Reminder-->
         <scene sceneID="Q5E-gv-N4f">
             <objects>
-                <viewController id="XkR-Ab-q0j" customClass="ToDoController" customModule="Assignment5b" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Add Reminder" id="XkR-Ab-q0j" customClass="ToDoController" customModule="Assignment5b" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4YE-Gp-Jw8"/>
                         <viewControllerLayoutGuide type="bottom" id="yvK-i9-vfI"/>
@@ -89,22 +92,22 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DMf-zx-3gt">
-                                <rect key="frame" x="143" y="213" width="97" height="30"/>
-                                <color key="backgroundColor" red="0.69609179297042767" green="0.25913194636888681" blue="0.14254445577487604" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Save">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="btnSave:" destination="XkR-Ab-q0j" eventType="touchUpInside" id="l6g-nr-94k"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Remind me please" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="18N-i1-kho">
                                 <rect key="frame" x="28" y="108" width="175" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DMf-zx-3gt">
+                                <rect key="frame" x="230" y="187" width="125" height="30"/>
+                                <color key="backgroundColor" red="0.69609179297042767" green="0.25913194636888681" blue="0.14254445577487604" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Add Reminder">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnSave:" destination="XkR-Ab-q0j" eventType="touchUpInside" id="l6g-nr-94k"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -117,7 +120,42 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rpL-FH-9Fp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1396.5" y="-383.5"/>
+            <point key="canvasLocation" x="1437.5" y="-907.5"/>
+        </scene>
+        <!--View Reminder-->
+        <scene sceneID="9iL-Ti-wkm">
+            <objects>
+                <viewController title="View Reminder" id="sqh-AB-arc" customClass="ViewDetailsViewController" customModule="Assignment5b" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="doU-mV-EFc"/>
+                        <viewControllerLayoutGuide type="bottom" id="agl-xC-7qK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1fa-W8-k7X">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reminder Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1TT-bF-Sfl">
+                                <rect key="frame" x="20" y="111" width="130" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="evu-T4-3Wg">
+                                <rect key="frame" x="20" y="148" width="306" height="26"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.47049144939999998" green="0.72580492649999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="lblReminder" destination="evu-T4-3Wg" id="WSb-1N-5YA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mdL-1M-duY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1437.5" y="-184.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gJE-in-iY7">

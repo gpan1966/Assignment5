@@ -10,14 +10,33 @@ import UIKit
 
 class ViewController: UIViewController, AddReminders, UITableViewDataSource, UITextFieldDelegate {
 
- //  let myAnimal = ToDo()
+
    @IBOutlet weak var ToDoTableView: UITableView!
    
    var ReminderArray = [String]()
 
-   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-      if let viewController = segue.destinationViewController as? ToDoController {
-         viewController.delegate = self
+   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+   {
+   //   print (segue.identifier)
+      if segue.identifier == "segAdd"
+      {
+         if let viewController = segue.destinationViewController as? ToDoController
+         {
+            viewController.delegate = self
+         }
+      }
+      else // Hande View Screen
+      {
+         
+         let indexPath : NSIndexPath = ToDoTableView.indexPathForSelectedRow!
+        
+         
+         let ViewDetailsController : ViewDetailsViewController = segue.destinationViewController as! ViewDetailsViewController
+         
+         
+         ViewDetailsController.reminderText = ReminderArray[indexPath.row]
+         
+         
       }
    }
    
@@ -28,9 +47,7 @@ class ViewController: UIViewController, AddReminders, UITableViewDataSource, UIT
       ReminderArray.insert(addReminders.Reminder, atIndex: ReminderArray.count)
       
       ToDoTableView.reloadData()
-      
    }
-   
    
    override func viewDidLoad() {
       super.viewDidLoad()
@@ -50,8 +67,6 @@ class ViewController: UIViewController, AddReminders, UITableViewDataSource, UIT
    
    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
    {
-      
-      //let cell = UITableViewCell()
       
       let cell = tableView.dequeueReusableCellWithIdentifier("ToDoCell")!
       cell.textLabel?.text = ReminderArray[indexPath.row]
